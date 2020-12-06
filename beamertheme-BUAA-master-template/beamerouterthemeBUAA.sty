@@ -1,0 +1,78 @@
+%% BUAA Beamer theme — Version 1.0
+%% A lightweight Beamer theme inspired from the Metropolis theme
+%%
+%% Written in 2017-2019 by:
+%% — Rémi Cérès <remiceres@msn.com>
+%% — Mattéo Delabre <bonjour@matteodelabre.me>
+%%
+%% This work is released under the CC0 1.0 Universal license. See the
+%% accompanying LICENSE file for details. To the extent possible under
+%% law, Rémi Cérès and Mattéo Delabre have waived all copyright and
+%% related or neighboring rights to the BUAA Beamer theme. This work
+%% is published from France.
+
+\mode<presentation>
+
+% Normal slide header
+\setbeamertemplate{frametitle}{
+    \vskip1em\par
+    \usebeamerfont{frametitle}\insertframetitle\par
+    \usebeamerfont{framesubtitle}\insertframesubtitle\par
+}
+
+% Remove useless navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Set logo empty
+\setbeamertemplate{logo}{}
+
+% Remove header line that distract from actual slide content
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \usebeamerfont{headline}%
+        \begin{beamercolorbox}[
+            wd=\textwidth,
+            ht=6ex,
+            dp=1.25ex
+        ]{headline}%
+            \hspace{0.3cm}%
+			\usebeamerfont{section in head}
+			\colorbox{main}{%
+			\textcolor{background}{\thesection}%
+			}
+			\hspace{0.2em}%
+            \insertsectionhead%
+            \hfill%
+            \includegraphics[height=2.2ex]
+                {buaalogo.png}%
+            \hspace{0.3cm}
+        \end{beamercolorbox}%
+    }
+    \vskip0pt%
+}
+
+% Footer information line with title, author and slide number
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{%
+        \usebeamerfont{footline}%
+        \begin{beamercolorbox}[
+            wd=\textwidth,
+            ht=2ex,
+            dp=1.25ex
+        ]{footline}%
+			\color{main}
+            \hspace{0.3cm}%
+            \insertshortinstitute%
+            \hfill%
+			\insertshorttitle
+			\hfill%
+            \insertframenumber{}%
+            \hspace{0.3cm}
+        \end{beamercolorbox}%
+    }
+    \vskip0pt%
+}
+
+\mode<all>

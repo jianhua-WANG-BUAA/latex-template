@@ -1,0 +1,450 @@
+% !TEX TS-program = xelatex
+% !Mode:: "TeX:UTF-8"
+\documentclass[table,aspectratio=1610]{beamer}%for the projection version
+%\documentclass[table,aspectratio=1610,handout]{beamer}%for the publish version
+\usetheme{BUAA}
+%\usepackage{ctex}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{colortbl}
+
+\usepackage{caption}
+\setbeamertemplate{caption}[numbered]
+\captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=period}
+\usepackage{ragged2e}
+
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{gensymb}%for the symbol degree with \degree
+\renewcommand\arraystretch{1.5}
+
+%set the main color of the beamer
+\definecolor{buaa-blue-light}{HTML}{5A93E9}
+\definecolor{buaa-blue-dark}{HTML}{005BAC}
+\definecolor{buaa-blue}{HTML}{15499A}
+\colorlet{main}{buaa-blue!80!black}
+
+%set the background color of the beamer
+\definecolor{buaa-white}{HTML}{E0ECF7}
+\colorlet{background}{buaa-white!50}  
+
+
+%%test the other color
+\definecolor{main}{HTML}{182936}
+\definecolor{background}{HTML}{E6E6E6}
+
+\graphicspath{{./figures/},{./figs-thesis/}}
+
+\title[the abbrivated title of the presentation]{{\normalsize \textcolor{separator}{objective of the PPT}}\\The title of the presentation}
+\author{
+    Last name first name \quad student number \\ Supervisor: name
+}
+\institute[BUAA]{School of XXXXX \\ Beihang University}
+%\date{\today}
+%\background{background.jpeg}
+
+\begin{document}
+
+%\maketitle
+\begin{frame}[plain]%to ensure the titlepage is without headline and footline.
+	\titlepage
+%	\begin{figure}
+%		\raggedleft
+%		\includegraphics[height=0.1\textheight]{buaalogo.png}
+%	\end{figure}
+\end{frame}
+
+
+\AtBeginSection[] % to show the current section at the beginning of each section.
+{
+	\begin{frame}[plain]{Outline}
+	\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+
+\section{Introduction}
+
+\begin{frame}{About the company}
+
+	\begin{figure}
+		\raggedright
+		\includegraphics[width=0.15\textwidth]{logo.png}
+	\end{figure}
+
+	Name of the company Co.,Ltd. 
+
+	\begin{enumerate}
+		\item well-kn supplof on-e \alert{rapiection} solutions;
+		\item a complete \alert{R\&D}, produfter-sales see system;
+		\item ser the \alert{pubafety}, food saand ml safety industries.
+	\end{enumerate}
+
+	\begin{columns}
+		\column[c]{.40\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=.8\textwidth]{image-test.png}
+			\caption{\alert{Holeld} exsive deter.}
+		\end{figure}
+
+		\column[c]{.40\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=.8\textwidth]{image-test.png}
+			\caption{\alert{Moile} expive dettor.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Content of the intership}	
+	Norm (mathematics) From Wikipedia, the free encyclopedia 
+
+	\begin{columns}
+		\column[c]{.65\textwidth}		
+			\begin{enumerate}[<+->]
+%				\justifying
+				\item In mathematics, a norm is a \alert{function};
+				
+				\item  form of the triangle \alert{inequality}, and is;
+				
+				\item two properties of a norm, but may ;
+				
+				\item g, obeys a form of the triangle ine;
+			\end{enumerate}
+		
+		\column[c]{.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{image-test.png}
+				\caption{\alert{UAV} exsive detion.}
+			\end{figure}
+	\end{columns}
+		
+\end{frame}
+
+\section{Research background}
+
+\begin{frame}{QuadroAV modeling}
+	\begin{columns}
+		\column[c]{0.55\textwidth}
+		Translational motion:
+		{\footnotesize
+			\begin{equation}\label{eq:model:translation}
+			\begin{cases}
+			m\ddot{X}^w = u_{c1}(\cos\phi \sin\theta \cos\psi) \\
+			m\ddot{Y}^w = u_{c1}(\sin\phi \cos\psi ) \\
+			m\ddot{Z}^w = mg - u_{c1} \cos\theta \\
+			\end{cases}
+			\end{equation}
+		}
+		
+		Rotational motion:
+		{\footnotesize
+			\begin{equation}\label{eq:model:rotation}
+			\begin{cases}
+			I_{xx}\ddot{\phi} = u_{c2}l+\dot{\theta}\dot{\psi}(-I_{zz}) \\
+			I_{yy}\ddot{\theta} = u_{c3}l+\dot{\phi}\dot{\psi}(I_{zz}-) \\
+			I_{zz}\ddot{\psi} = u_{c4}+\dot{\theta}(I_{xx}-I_{yy}) \\
+			\end{cases}
+			\end{equation}
+		}
+		
+		\column[c]{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+		\end{figure}
+	\end{columns}
+	
+	\pause
+	\begin{columns}
+		\column[c]{0.55\textwidth}
+		{\Large \color{red}
+			\begin{equation*}
+			\Downarrow
+			\end{equation*}
+		}
+		Reduced model:
+		{\footnotesize
+			\begin{equation} \label{eq:system:continuous:initial}
+			\begin{split}
+			\dot{p}_i(t) & = v_i(t) \\
+			\dot{v}_i(t) & = u_i(t)
+			\end{split}
+			\end{equation}
+		}
+		\pause
+		\column[c]{0.1\textwidth}
+		{\Large \color{red}
+			\[
+			\Longrightarrow
+			\]
+		}
+		
+		\column[c]{0.4\textwidth}			
+		State space representaion:
+		{\footnotesize
+			\begin{equation} \label{eq:system:continuous}
+			\dot{x}_i(t)=Ax_i(t)+Bu_i(t),
+			\end{equation}
+			{\normalsize where }
+			$
+			A=
+			\begin{bmatrix}
+			0  & 0  \\
+			0  & 0  \\
+			\end{bmatrix}
+			, \
+			B=
+			\begin{bmatrix}
+			0 \\
+			0 \\
+			\end{bmatrix}.
+			$
+		}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Formation tracking}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{image-test.png}
+		\caption{Illustrof the ti forion tracking.}
+	\end{figure}
+\end{frame}
+
+
+
+\section{Internsntent}
+
+\subsection{Scenarstruction}
+
+\subsection{Slid cool}
+\begin{frame}{Sliding mode control}
+	\begin{columns}
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Tratory of \alert{contnuous} system.}
+		\end{figure}
+		
+		\pause
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Trajery of \alert{diete} system.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{Discrete-time SMC protocol}
+	The following \alert{disibuted} fortion procol is proposed, 
+	
+	\begin{equation}\label{eq:ui:final}
+	\begin{split}
+	u_i(k)=& (K\bar{B}(d_i+a_{i0}))^{-1} \bigg( K\bar{B}\sum a_{ij}u_j(k)-\Big[K\bar{A}\big(x_i(k)- \sum_{j=1, j\ne i}^{N} a_{ij}x_j(k) \big)  \\
+	& -a_{i0}K\bar{A}x_0(k) -a_{i0}K\bar{B}\tilde{u}_{i0}(k) + \varepsilon T \sgn(s_i(k)) \\
+	& -K\big((d_i+a_{i0})f_i(k+1)-\sum_{j=1, j\ne i}^{N} a_{ij} \big) \Big] \bigg)
+	\end{split}
+	\end{equation}
+	where $\tilde{u}_{i0}(k)=\tilde{u}_1-\sgn(s_i(k))$, $\tilde{u}_1=(u_{min})/2$ and $\tilde{u}_2=(u_{max}-u_{min})/2$.
+\end{frame}
+
+
+
+\begin{frame}{Simulation results}
+	\begin{columns}
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Trajecto of seven UAin 40s in experiment 1.}
+		\end{figure}
+		
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{PositioAVs at 40s in experiment 1.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\subsection{Reincetrol}
+
+\begin{frame}{Reinforcement learning}
+	Markon Process (MDP) 
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.75\textwidth]{image-test.png}
+		\caption{The agection inion process.}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Reward function}	
+	Denote $ d $ the distance between UAV and target.
+	\rowcolors{1}{black!15}{black!03}%from the second row to alternate the row colors
+	\begin{table}
+		\small 
+		\centering
+		\caption{Reward function definition oracking task.}
+		\label{table:reward:function}
+		\begin{tabular}{|c|l|c|}
+			\hline
+			  & \bfseries Condition & \bfseries Reward ($ R $) \\ \hline
+			1 & $ d<0.05m $ & +50  \\ \hline
+			2 & $ d<0.05m $ & +50  \\ \hline
+			3 & $ d<0.05m $ & +50  \\ \hline
+			4 & $ d<0.05m $ & +50  \\ \hline
+			5 & no other reward  & -1 \\ \hline	
+		\end{tabular}
+	\end{table}
+	
+\end{frame}
+
+
+
+\begin{frame}{Dyna-Q algorithm}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.75\textwidth]{image-test.png}
+%		\caption{Stage 2.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Training results}
+	\begin{itemize}
+		\item Stage 1: Fixedt tracking, with $ (x,y) =(1.2m,-1.2m) $ ;
+		\item Stage 2: Randracking, with $ x , y \in [-3.6m,3.6m] $ ;
+	\end{itemize}
+	\begin{columns}
+		\pause
+		\column[c]{.59\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Stage 1.}
+		\end{figure}
+		
+		\pause
+		\column[c]{.41\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Stage 2.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Formatng wi RL}
+	\begin{itemize}
+		\item Leader UAV: \alert{circular} mot $ r=10m $;
+		\item Followers: tracking the learealize a square formation;
+	\end{itemize}
+	\begin{columns}
+		\pause 
+		\column[c]{.4\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Five UAVs \alert{before} the formation.}
+		\end{figure}
+	
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Positions of five UAVs \alert{before} the formation.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Forma trackin RL}
+	\begin{itemize}
+		\item LeadeAV: \alert{ciular} mot with $ r=10m $;
+		\item Follors: tng the lea realize a square formation;
+	\end{itemize}
+	\begin{columns}
+		\pause
+		\column[c]{.4\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Five UAVs \alert{after} the formation.}
+		\end{figure}
+		
+		\column[c]{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+			\caption{Positions of five UAVs \alert{after} the formation.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{What I have donnterhip}
+	\begin{itemize}
+		\item Utilization of timulator;
+		\item Survey on the sle control theory;
+		\item Survey on throl method with mulUAV system;
+		\item RL algorithm trainingntation onplatform;
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[height=.25\textheight]{image-test.png} \hspace{2em}
+		\includegraphics[height=.23\textheight]{image-test.png} \hspace{2em}
+		\includegraphics[height=.25\textheight]{image-test.png}
+	\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Self-evaluation}
+	\begin{columns}
+		\column[c]{.75\textwidth}
+		\begin{itemize}
+			\item What I have \alert{learned}
+			\begin{itemize}
+				\item Understanding of
+				\item Ability to solve complexe problems;
+				\item Quality of oral communication;
+			\end{itemize}
+		\vspace{2ex}
+			\item To be \alert{improved}
+			\begin{itemize}
+				\item The ability to solve complems across fields and disciplines;
+				\item The ability to integrate and n special environments;
+				\item The ability to ask quality questions;
+			\end{itemize}
+		\end{itemize}
+	
+		\column[c]{.25\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{image-test.png}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\section*{Acknowledgements}
+\begin{frame}
+	\centering
+	\Huge
+	Thanks for your attention!\\
+	Q\& A
+\end{frame}
+
+\end{document}
