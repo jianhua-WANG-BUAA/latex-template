@@ -1,4 +1,4 @@
 # latex-template
 Beamer template
 
-Here is the beamer template that I created based on the template from the internet.
+beamertheme-BUAA-master-template is the unofficial BUAA beamer template that I created based on the template [beamertheme-bruno ](https://forge.delab.re/matteo/beamertheme-bruno).
